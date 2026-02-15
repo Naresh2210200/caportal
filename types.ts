@@ -6,9 +6,9 @@ export interface User {
   username: string;
   fullName: string;
   role: Role;
-  caCode: string; // For CA: their own code. For Customer: their linked CA's code.
-  firmName?: string; // CA Only
-  gstin?: string; // Customer Only (Simulated)
+  caCode: string;
+  firmName?: string;
+  gstin?: string;
 }
 
 export type FileStatus = 'Pending' | 'Processing' | 'Completed' | 'Error';
@@ -25,7 +25,7 @@ export interface UploadedFile {
   note: string;
   status: FileStatus;
   processedFileUrl?: string;
-  content?: string; // Raw CSV data stored for conversion
+  content?: string;
 }
 
 export interface ProcessingLog {
@@ -37,4 +37,6 @@ export interface ProcessingLog {
   status: string;
   caCode: string;
   customerId: string;
+  errorCount?: number;
+  migratedAmount?: number;
 }
