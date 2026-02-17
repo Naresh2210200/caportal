@@ -98,8 +98,8 @@ export class GSTR1Processor {
         },
         'Docs_issued': {
             'Nature of Document': ['Nature of Document', 'Type of Document'],
-            'Sr.No.From': ['Sr.No.From', 'Series From'],
-            'Sr.No.To': ['Sr.No.To', 'Series To'],
+            'Sr.No.From': ['Sr.No.From', 'Sr. No. From', 'Series From'],
+            'Sr.No.To': ['Sr.No.To', 'Sr. No. To', 'Series To'],
             'Total Number': ['Total Number'],
             'Cancelled': ['Cancelled'],
             'Net Issued': ['Net Issued']
@@ -223,9 +223,9 @@ export class GSTR1Processor {
                 const mapping = (columnMappings as any)[sheetName] || {};
 
                 if (sheetName === 'Nil_exempt_NonGST') {
-                    this.excelGenerator.updateExemptSheet(sheet, csvData, mapping);
+                    this.excelGenerator.updateExemptSheet(sheet, csvData, mapping, sheetName);
                 } else {
-                    this.excelGenerator.appendDataToSheet(sheet, csvData, mapping);
+                    this.excelGenerator.appendDataToSheet(sheet, csvData, mapping, sheetName);
                 }
 
                 processed++;

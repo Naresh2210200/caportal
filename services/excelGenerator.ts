@@ -10,7 +10,7 @@ export class ExcelGenerator {
         return XLSX.read(templateBinary, { type: 'array', cellStyles: true });
     }
 
-    updateExemptSheet(sheet: any, data: any[], columnMapping: any) {
+    updateExemptSheet(sheet: any, data: any[], columnMapping: any, sheetName?: string) {
         if (data.length === 0) return;
         const range = XLSX.utils.decode_range(sheet['!ref'] || 'A1');
         const templateHeaders: string[] = [];
@@ -63,7 +63,7 @@ export class ExcelGenerator {
         });
     }
 
-    appendDataToSheet(sheet: any, data: any[], columnMapping: any) {
+    appendDataToSheet(sheet: any, data: any[], columnMapping: any, sheetName?: string) {
         if (data.length === 0) return;
 
         const range = XLSX.utils.decode_range(sheet['!ref'] || 'A1');
